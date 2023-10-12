@@ -18,6 +18,8 @@ list_of_files = [
     "params.yaml",
     "requirements.txt",
     "setup.py",
+    "logger.py",
+    "exception.py",
     "notebooks/trails.ipynb",
 
 ]

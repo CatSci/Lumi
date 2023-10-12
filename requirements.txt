@@ -1,0 +1,8 @@
+pandas
+openpyxl
+python-dotenv
+from_root
+PyYAML
+requests
+psycopg2
+-e .

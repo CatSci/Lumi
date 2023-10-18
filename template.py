@@ -13,6 +13,9 @@ list_of_files = [
     f"{project_name}/utils/__init__.py",
     f"{project_name}/config/__init__.py",
     f"{project_name}/config/configuration.py",
+    f"{project_name}/entity/__init__.py",
+    f"{project_name}/entity/config_entity.py",
+    f"{project_name}/entity/artifact_entity.py",
     f"{project_name}/constants/__init__.py",
     "config/config.yaml",
     "params.yaml",
@@ -20,6 +23,7 @@ list_of_files = [
     "setup.py",
     "logger.py",
     "exception.py",
+    "app.py",
     "notebooks/trails.ipynb",
 
 ]

@@ -5,4 +5,5 @@ from_root
 PyYAML
 requests
 psycopg2
+streamlit
 -e .

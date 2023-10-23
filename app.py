@@ -83,10 +83,10 @@ st.markdown(
 import os
 from utils.common import read_yaml_file
 current_dir = os.path.dirname(__file__)
-st.write(current_dir)
-schema_pth = "/lumi/config/schema.yaml"
+st.write(f"curr dir {current_dir}")
+schema_pth = "lumi/config/schema.yaml"
 SCHEMA_FILE_PATH = os.path.join(current_dir, schema_pth)
-st.write(SCHEMA_FILE_PATH)
+st.write(f" schema path {SCHEMA_FILE_PATH}")
 read_yaml_file(SCHEMA_FILE_PATH)
 
 # eid = "experiment:b572a4ea-67e4-4333-b34e-bd78a8d3ee3d"

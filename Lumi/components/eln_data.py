@@ -8,8 +8,8 @@ from utils.common import read_yaml_file
 import streamlit as st
 
 load_dotenv('../../.env')
-current_dir = os.path.dirname(__file__)
-st.write(current_dir)
+# current_dir = os.path.dirname(__file__)
+# st.write(current_dir)
 SCHEMA_FILE_PATH = os.path.join('lumi', 'config', 'schema.yaml')
 
 class ELN:

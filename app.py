@@ -80,17 +80,20 @@ st.markdown(
 
 # eid = "experiment:b572a4ea-67e4-4333-b34e-bd78a8d3ee3d"
 eid = "experiment:7427ab3b-295b-4480-9e66-2797306234bb"
-def create_pipeline(api):
+
+
+jwt_token = get_valid_jwt(email= st.secrets["email"], password= st.secrets["password"])
+def create_pipeline(api, jwt_token):
 
     e = ELN(eid = eid, api_key= api)
     eln_data = e.initiate_data_extraction()
 
-    lumi = LumiCreateExp(data= eln_data)
+    lumi = LumiCreateExp(data= eln_data, jwt_token= jwt_token)
     output = lumi.create_experiment()
     return output
 
-def push_pipeline(api):
-    lumi_data = LumiData(eid = eid)
+def push_pipeline(api, jwt_token):
+    lumi_data = LumiData(eid = eid, jwt_token= jwt_token)
     img = lumi_data.get_data()
     st.image(img, caption='Your Image', use_column_width=True)
 
@@ -105,21 +108,23 @@ jwt_token = get_valid_jwt(email= None,
                           password= None)
 
 if st.button("Create Experiment in Lumi", key="create_lumi", type="primary"):
-    load_dotenv('.env')
-    api = os.environ.get("SANDBOX_API_KEY")
+    # load_dotenv('.env')
+    # api = os.environ.get("SANDBOX_API_KEY")
+    api = st.secrets["SANDBOX_API_KEY"]
     # st.write(eid)
     with st.spinner("Creating experiment"):
-        output = create_pipeline(api = api)
+        output = create_pipeline(api = api, jwt_token= jwt_token)
         if output == "success":
             st.success("Experiment created in Lumi")
 
 
 if st.button("Send Data from Lumi to ELN", key="pull_lumi", type="secondary"):
-    load_dotenv('.env')
-    api = os.environ.get("SANDBOX_API_KEY")
+    # load_dotenv('.env')
+    # api = os.environ.get("SANDBOX_API_KEY")
+    api = st.secrets["SANDBOX_API_KEY"]
     # st.write(eid)
     with st.spinner("Uploading data to ELN"):
-        output = push_pipeline(api = api)
+        output = push_pipeline(api = api, jwt_token= jwt_token)
         st.write(output)
         if output == "success":
             st.success("Data uploaded to ELN")

@@ -14,11 +14,13 @@ load_dotenv('../../.env')
 class LumiCreateExp:
     def __init__(self,
                  data,
+                 jwt_token,
                  lumi_url: str = CREATE_EXP ) -> None:
         
         self.data = data
         self.url = lumi_url
-        self._api_key = os.environ.get("AuthToken")
+        # self._api_key = os.environ.get("AuthToken")
+        self._api_key = jwt_token
         self._authToken = f"Bearer {self._api_key}"
         self._headers= {
             "Authorization": self._authToken,

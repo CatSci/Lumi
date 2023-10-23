@@ -15,12 +15,14 @@ test_eid = "experiment:b572a4ea-67e4-4333-b34e-bd78a8d3ee3d"
 class LumiData:
     def __init__(self,
                  eid= None,
+                 jwt_token = None,
                  get_url: str =  GET_EXP) -> None:
         
         self.eid = eid
         self.params = {"id": self.eid}
         self.url = get_url
-        self._api_key = os.environ.get("AuthToken")
+        # self._api_key = os.environ.get("AuthToken")
+        self._api_key = jwt_token
         self._authToken = f"Bearer {self._api_key}"
         self._headers= {
             "Authorization": self._authToken,

@@ -84,7 +84,7 @@ import os
 from utils.common import read_yaml_file
 current_dir = os.path.dirname(__file__)
 st.write(f"curr dir {current_dir}")
-schema_pth = "lumi/config/schema.yaml"
+schema_pth = "Lumi/config/schema.yaml"
 SCHEMA_FILE_PATH = os.path.join(current_dir, schema_pth)
 st.write(f" schema path {SCHEMA_FILE_PATH}")
 read_yaml_file(SCHEMA_FILE_PATH)

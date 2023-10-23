@@ -16,7 +16,8 @@ class ELN:
     def __init__(self,
                  eid: str,
                  base_url: str = SANDBOX_BASE_URL,
-                 api_key = None):
+                 api_key = None,
+                 col_path = None):
         
         """_summary_
         """
@@ -25,7 +26,7 @@ class ELN:
         self.url = base_url + eid
         # self._headers = {'x-api-key': os.environ.get("API_KEY")}
         self._headers = {'x-api-key': api_key}
-        self._schema_config = read_yaml_file(SCHEMA_FILE_PATH)
+        self._schema_config = read_yaml_file(col_path)
         # except Exception as e:
         #     raise LumiException(e, sys)
 

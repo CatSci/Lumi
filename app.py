@@ -80,15 +80,15 @@ st.markdown(
 
 
 
-import os
-from utils.common import read_yaml_file
+# import os
+# from utils.common import read_yaml_file
 current_dir = os.path.dirname(__file__)
-st.write(f"curr dir {current_dir}")
+# st.write(f"curr dir {current_dir}")
 schema_pth = "Lumi/config/schema.yaml"
 SCHEMA_FILE_PATH = os.path.join(current_dir, schema_pth)
-st.write(f" schema path {SCHEMA_FILE_PATH}")
-a = read_yaml_file(SCHEMA_FILE_PATH)
-st.write(a)
+# st.write(f" schema path {SCHEMA_FILE_PATH}")
+# a = read_yaml_file(SCHEMA_FILE_PATH)
+# st.write(a)
 
 # eid = "experiment:b572a4ea-67e4-4333-b34e-bd78a8d3ee3d"
 eid = "experiment:7427ab3b-295b-4480-9e66-2797306234bb"
@@ -104,7 +104,7 @@ jwt_token = get_valid_jwt(email= st.secrets["email"], password= st.secrets["pass
 
 def create_pipeline(api, jwt_token):
 
-    e = ELN(eid = eid, api_key= api)
+    e = ELN(eid = eid, api_key= api, col_path= SCHEMA_FILE_PATH)
     eln_data = e.initiate_data_extraction()
 
     lumi = LumiCreateExp(data= eln_data, jwt_token= jwt_token)

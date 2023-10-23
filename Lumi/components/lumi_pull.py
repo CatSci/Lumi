@@ -9,8 +9,6 @@ from components.eln_data import ELN
 
 load_dotenv('../../.env')
 
-test_eid = "experiment:b572a4ea-67e4-4333-b34e-bd78a8d3ee3d"
-
 
 class LumiData:
     def __init__(self,

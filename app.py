@@ -84,12 +84,6 @@ current_dir = os.path.dirname(__file__)
 schema_pth = "Lumi/config/schema.yaml"
 SCHEMA_FILE_PATH = os.path.join(current_dir, schema_pth)
 
-# # eid = "experiment:b572a4ea-67e4-4333-b34e-bd78a8d3ee3d"
-# eid = "experiment:7427ab3b-295b-4480-9e66-2797306234bb"
-
-
-
-
 
 jwt_token = get_valid_jwt(email= st.secrets["email"], password= st.secrets["password"])
 
@@ -100,7 +94,6 @@ jwt_token = get_valid_jwt(email= st.secrets["email"], password= st.secrets["pass
 
 query_params = st.experimental_get_query_params()
 eid = query_params['__eid'][0]
-st.write(eid)
 
 
 def create_pipeline(api, jwt_token):
@@ -122,7 +115,6 @@ def push_pipeline(api, jwt_token):
     return output
 
 st.title("ELN-Lumi Connector")
-# st.info('Please make sure to upload **all files** !!')
 
 
 if st.button("Create Experiment in Lumi", key="create_lumi", type="primary"):
@@ -143,7 +135,6 @@ if st.button("Send Data from Lumi to ELN", key="pull_lumi", type="secondary"):
     # st.write(eid)
     with st.spinner("Uploading data to ELN"):
         output = push_pipeline(api = api, jwt_token= jwt_token)
-        st.write(output)
         if output == "success":
             st.success("Data uploaded to ELN")
 

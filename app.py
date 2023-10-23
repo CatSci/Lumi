@@ -87,7 +87,8 @@ st.write(f"curr dir {current_dir}")
 schema_pth = "Lumi/config/schema.yaml"
 SCHEMA_FILE_PATH = os.path.join(current_dir, schema_pth)
 st.write(f" schema path {SCHEMA_FILE_PATH}")
-read_yaml_file(SCHEMA_FILE_PATH)
+a = read_yaml_file(SCHEMA_FILE_PATH)
+st.write(a)
 
 # eid = "experiment:b572a4ea-67e4-4333-b34e-bd78a8d3ee3d"
 eid = "experiment:7427ab3b-295b-4480-9e66-2797306234bb"

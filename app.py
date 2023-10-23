@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 import streamlit as st
-
+from urllib.parse import urlparse, parse_qs
 
 from components.eln_data import ELN
 from components.eln_push import LumiEln
@@ -80,18 +80,15 @@ st.markdown(
 
 
 
-# import os
-# from utils.common import read_yaml_file
 current_dir = os.path.dirname(__file__)
-# st.write(f"curr dir {current_dir}")
 schema_pth = "Lumi/config/schema.yaml"
 SCHEMA_FILE_PATH = os.path.join(current_dir, schema_pth)
-# st.write(f" schema path {SCHEMA_FILE_PATH}")
-# a = read_yaml_file(SCHEMA_FILE_PATH)
-# st.write(a)
 
-# eid = "experiment:b572a4ea-67e4-4333-b34e-bd78a8d3ee3d"
-eid = "experiment:7427ab3b-295b-4480-9e66-2797306234bb"
+# # eid = "experiment:b572a4ea-67e4-4333-b34e-bd78a8d3ee3d"
+# eid = "experiment:7427ab3b-295b-4480-9e66-2797306234bb"
+
+
+
 
 
 jwt_token = get_valid_jwt(email= st.secrets["email"], password= st.secrets["password"])
@@ -100,6 +97,10 @@ jwt_token = get_valid_jwt(email= st.secrets["email"], password= st.secrets["pass
 # password = os.environ.get("password")
 
 # jwt_token = get_valid_jwt(email= email, password= password)
+
+query_params = st.experimental_get_query_params()
+eid = query_params['__eid'][0]
+st.write(eid)
 
 
 def create_pipeline(api, jwt_token):

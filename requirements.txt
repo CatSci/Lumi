@@ -1,6 +1,6 @@
 openpyxl
 python-dotenv
-from_root
+from-root
 PyYAML
 requests
 streamlit

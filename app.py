@@ -78,6 +78,14 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+
+
+import os
+current_dir = os.path.dirname(__file__)
+st.write(current_dir)
+
+SCHEMA_FILE_PATH = os.path.join('lumi', 'config', 'schema.yaml')
+
 # eid = "experiment:b572a4ea-67e4-4333-b34e-bd78a8d3ee3d"
 eid = "experiment:7427ab3b-295b-4480-9e66-2797306234bb"
 

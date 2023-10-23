@@ -83,6 +83,13 @@ eid = "experiment:7427ab3b-295b-4480-9e66-2797306234bb"
 
 
 jwt_token = get_valid_jwt(email= st.secrets["email"], password= st.secrets["password"])
+
+# email = os.environ.get("email")
+# password = os.environ.get("password")
+
+# jwt_token = get_valid_jwt(email= email, password= password)
+
+
 def create_pipeline(api, jwt_token):
 
     e = ELN(eid = eid, api_key= api)
@@ -104,8 +111,6 @@ def push_pipeline(api, jwt_token):
 st.title("ELN-Lumi Connector")
 # st.info('Please make sure to upload **all files** !!')
 
-jwt_token = get_valid_jwt(email= None,
-                          password= None)
 
 if st.button("Create Experiment in Lumi", key="create_lumi", type="primary"):
     # load_dotenv('.env')

@@ -18,6 +18,8 @@ def get_valid_jwt(email: str, password: str):
 
     if response.status_code == 200:
         jwt_token = response.json().get("authToken")
-        print(jwt_token)
+        return jwt_token
     else:
         print("Error:", response.text)
+
+    

@@ -16,7 +16,7 @@ def error_message_detail(error, error_detail: sys):
         file_name, exc_tb.tb_lineno, str(error)
     )
 
-class Lumi(Exception):
+class LumiException(Exception):
 
     def __init__(self,error_message, error_detail):
         super().__init__(error_message)
